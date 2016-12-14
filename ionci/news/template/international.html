@@ -1,0 +1,19 @@
+<ion-header-bar class="bar bar-header bar-light bar-positive">
+	<button class="button button-clear icon ion-navicon" ng-click="toggleLeftSideMenu()"></button>
+	<h1 class="title">今日热点</h1>
+	<button class="button button-clear icon ion-email-unread"></button>
+</ion-header-bar>
+<!--头部e-->
+<!--中间内容s-->
+<ion-content>
+	<!--轮播图的组件-->
+	<ng-swiper></ng-swiper>
+	<ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+	<div class="list">
+		<a class="item item-avatar" ng-href="#/details/{{$index}}/{{new.channelId}}/{{new.channelName}}" ng-repeat="new in news">
+			<img ng-src="{{new.havePic?new.imageurls[0].url:''}}">
+			<h2>{{new.title}}</h2>
+			<p>{{new.desc}}</p>
+		</a>
+	</div>
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-side-menus>
+	<!-- 中间内容 -->
+	<ion-side-menu-content>
+		<!--中间内容的头部-->
+		<ion-header-bar class="bar arb-header bar-light bar-positive">
+	<button class="button button-clear icon ion-navicon" ng-click="toggleLeftSideMenu()"></button>
+	<h1 class="title">今日热点</h1>
+	<button class="button button-clear icon ion-email-unread"></button>
+</ion-header-bar>
+			<div ui-view=""></div>
+		<!--中间主题内容e-->
+	</ion-side-menu-content>
+	<!--中间菜单e-->
+	<!-- 左侧菜单 -->
+	<ion-side-menu side="left">
+		<ion-header-bar class="bar-energized">
+			<h2 class="title">新闻选择</h2>
+		</ion-header-bar>
+		<ion-content>
+			<ion-list class="list">
+				<ion-item class="item {{tab.bool?'positive':''}}" ng-repeat="tab in tabs"  ng-click="toggle(tab.url,{{$index}})">{{tab.name}}</ion-item>
+			</ion-list>
+		</ion-content>
+	</ion-side-menu>
+
+	<!-- 右侧菜单 -->
+	<ion-side-menu side="right">
+	</ion-side-menu>
+</ion-side-menus>

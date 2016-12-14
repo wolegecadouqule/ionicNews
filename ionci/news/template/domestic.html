@@ -1,0 +1,25 @@
+<!--头部e-->
+<!--中间内容s-->
+<ion-content>
+	<div class="list list-inset">
+		<label class="item item-input searchBar">
+    <i class="icon ion-search placeholder-icon"></i>
+    <input type="text" placeholder="新闻搜索" ng-model="searchConten">
+  </label>
+	</div>
+	<!--轮播图的组件-->
+	<ng-swiper></ng-swiper>
+	<ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+	<div class="list">
+		<a class="item item-avatar" ng-href="#/details/{{$index}}/{{new.channelId}}/{{new.channelName}}" ng-repeat="new in news|filter:searchConten">
+			<img ng-src="{{new.havePic?new.imageurls[0].url:''}}">
+			<h2>{{new.title}}</h2>
+			<p>{{new.desc}}</p>
+		</a>
+	</div>
+</ion-content>
+<style type="text/css">
+	 .searchBar{
+		border-radius:15px !important;
+	}
+</style>
